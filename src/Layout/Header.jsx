@@ -26,7 +26,7 @@ const Header = () => {
                 Home
               </NavLink>
             </li>
-           
+
             <li>
               <NavLink
                 to="/blogs"
@@ -35,9 +35,17 @@ const Header = () => {
                 Blogs
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/register"
+                className={({ isActive }) => (isActive ? "active" : "default")}
+              >
+                Register
+              </NavLink>
+            </li>
           </ul>
           <div className="hidden lg:block">
-            <button className="btn">Login</button>
+           <Link to='/login' className='btn'>Login</Link>
           </div>
           {/* Mobile Navbar Section */}
           <div className="lg:hidden">

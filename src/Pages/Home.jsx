@@ -1,10 +1,15 @@
 import React from 'react';
 import Hero from './HeroSection/Hero';
+import CardData from './ChefCard/CardData';
+
 
 const Home = () => {
     return (
         <div className='my-container'>
-           <Hero/>
+            <Hero />
+            <CardData/>
+            
+            
         </div>
     );
 };
