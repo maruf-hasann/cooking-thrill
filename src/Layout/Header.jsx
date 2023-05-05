@@ -5,7 +5,7 @@ import {
   Bars3BottomRightIcon,
   XMarkIcon,
 } from "@heroicons/react/24/solid";
-
+import './Header.css'
 const Header = () => {
       const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
