@@ -12,6 +12,7 @@ import Register from './Pages/Register';
 import Login from './Pages/Login';
 import Blogs from './Pages/Blogs';
 import ChefInfo from './Pages/ChefInfo/ChefInfo';
+import Error from './Pages/Error';
 
 const router = createBrowserRouter([
   {
@@ -40,7 +41,10 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`http://localhost:3000/data/${params.id}`),
       },
     ],
-  },
+  }, {
+    path: '/*',
+    element: <Error/>
+  }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

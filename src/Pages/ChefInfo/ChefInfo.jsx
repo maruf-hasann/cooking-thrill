@@ -81,7 +81,12 @@ const ChefInfo = () => {
             <div className="flex justify-between">
               <div>Rating : {rating_two}</div>
               <div>
-                <img src={icon} className="w-8" alt="" />
+                <img
+                  src={icon}
+                  className={`${click} w-10`}
+                  alt=""
+                  onClick={loveReact}
+                />
               </div>
             </div>
           </div>
@@ -95,7 +100,12 @@ const ChefInfo = () => {
             <div className="flex justify-between">
               <div>Rating : {rating_three}</div>
               <div>
-                <img src={icon} className="w-8" alt="" />
+                <img
+                  src={icon}
+                  className={`${click} w-10`}
+                  alt=""
+                  onClick={loveReact}
+                />
               </div>
             </div>
           </div>
