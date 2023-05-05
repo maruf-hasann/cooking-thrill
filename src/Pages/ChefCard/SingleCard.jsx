@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const SingleCard = ({ singleData }) => {
   const { name, img, experience, recipes, like,id } = singleData;
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="card w-96 bg-base-100 shadow-xl mb-5">
       <figure>
         <img src={img} alt="Shoes" />
       </figure>

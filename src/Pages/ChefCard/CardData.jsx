@@ -10,11 +10,16 @@ const CardData = () => {
             .then(data => setData(data))
   },[])
     return (
-        <div className='my_container'>
-            {
-                data.map(singleData => <SingleCard key={singleData.id} singleData={singleData}></SingleCard> )
-            }
+      <div className="my_container">
+        <div className='grid lg:grid-cols-3 my-3'>
+          {data.map((singleData) => (
+            <SingleCard
+              key={singleData.id}
+              singleData={singleData}
+            ></SingleCard>
+          ))}
         </div>
+      </div>
     );
 };
 
