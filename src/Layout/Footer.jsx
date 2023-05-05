@@ -11,7 +11,7 @@ const Footer = () => {
             <p className="text-xl">
               Create a website that shows the recipes of all available chefs.
               The website must be exclusively dedicated to one
-              cuisine(Bangladeshi, Chinese, Indian, Mediterranean, Thai,
+              cuisine Bangladeshi, Chinese, Indian, Mediterranean, Thai,
               Japanese, Italian, African, Vietnamese, Srilankan, Nepalese,
               American, Korean, Mexican, Australian, Afgan, French, etc.
             </p>
