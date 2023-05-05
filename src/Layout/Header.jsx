@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import {
   BoltIcon,
@@ -6,14 +6,22 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/solid";
 import './Header.css'
+import { AuthContext } from '../Shared/AuthProvider';
+
 const Header = () => {
-      const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((error) => console.log(error));
+  }
     return (
       <div className=" px-4 font-semibold py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           {/* Logo Section */}
-          <Link to="/" className="inline-flex items-center">
-            Cooking thrill
+          <Link to="/" className="inline-flex items-center font-bold text-3xl">
+            Cooking Thrill
           </Link>
 
           {/* Menu Section */}
@@ -44,9 +52,15 @@ const Header = () => {
               </NavLink>
             </li>
           </ul>
-          <div className="hidden lg:block">
-           <Link to='/login' className='btn'>Login</Link>
-          </div>
+          {user ? (
+            <button onClick={handleLogOut} className='btn'>
+              Logout
+            </button>
+          ) : (
+            <Link to="/login">
+              <button className='btn' >Login</button>
+            </Link>
+          )}
           {/* Mobile Navbar Section */}
           <div className="lg:hidden">
             {/* Dropdown Open Button */}
@@ -91,6 +105,7 @@ const Header = () => {
                           Home
                         </NavLink>
                       </li>
+
                       <li>
                         <NavLink
                           to="/blogs"
@@ -99,6 +114,16 @@ const Header = () => {
                           }
                         >
                           Blogs
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          to="/register"
+                          className={({ isActive }) =>
+                            isActive ? "active" : "default"
+                          }
+                        >
+                          Register
                         </NavLink>
                       </li>
                     </ul>

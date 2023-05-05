@@ -13,6 +13,8 @@ import Login from './Pages/Login';
 import Blogs from './Pages/Blogs';
 import ChefInfo from './Pages/ChefInfo/ChefInfo';
 import Error from './Pages/Error';
+import AuthProvider from './Shared/AuthProvider';
+import Private from './PrivateRoutes/Private';
 
 const router = createBrowserRouter([
   {
@@ -37,7 +39,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/chefInfo/:id",
-        element: <ChefInfo></ChefInfo>,
+        element: (
+          <Private>
+            <ChefInfo></ChefInfo>
+          </Private>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://chef-recipe-hunter-server-side-afnafmafeee-gmailcom.vercel.app/data/${params.id}`
@@ -50,8 +56,10 @@ const router = createBrowserRouter([
     element: <Error />,
   },
 ]);
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-  <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  </React.StrictMode>
+);
