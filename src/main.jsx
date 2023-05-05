@@ -38,13 +38,17 @@ const router = createBrowserRouter([
       {
         path: "/chefInfo/:id",
         element: <ChefInfo></ChefInfo>,
-        loader: ({ params }) => fetch(`http://localhost:3000/data/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://chef-recipe-hunter-server-side-afnafmafeee-gmailcom.vercel.app/data/${params.id}`
+          ),
       },
     ],
-  }, {
-    path: '/*',
-    element: <Error/>
-  }
+  },
+  {
+    path: "/*",
+    element: <Error />,
+  },
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

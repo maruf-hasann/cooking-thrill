@@ -5,13 +5,18 @@ import SingleCard from './SingleCard';
 const CardData = () => {
     const [data, setData] = useState([])
     useEffect(() => {
-        fetch("http://localhost:3000/data")
-            .then(res => res.json())
-            .then(data => setData(data))
+        fetch(
+          "https://chef-recipe-hunter-server-side-afnafmafeee-gmailcom.vercel.app/data"
+        )
+          .then((res) => res.json())
+          .then((data) => setData(data));
   },[])
     return (
       <div className="my_container">
-        <div className='grid lg:grid-cols-3 my-3'>
+        <h1 className=" text-center text-4xl font-bold mb-14">
+          Experience chefs
+        </h1>
+        <div className="grid lg:grid-cols-3 my-3">
           {data.map((singleData) => (
             <SingleCard
               key={singleData.id}
